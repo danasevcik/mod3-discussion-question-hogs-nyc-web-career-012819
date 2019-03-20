@@ -24,22 +24,46 @@ function transitionPage(el, groupOut, groupIn) {
   }, LONGESTPOSSIBLE)
 }
 /*************************************************************************/
+const faveHog = document.querySelector('#myFaveHog')
+const gitHub = document.querySelector('#github-logo')
+const about = document.querySelector('#about-logo')
+const disclaimer = document.querySelector('#pholder-logo')
+const buttonArray = [faveHog, gitHub, about, disclaimer]
+
+// faveHog.addEventListener('click', () => {
+  // console.log('clicked')
+  // let buttonArray = [gitHub, about, disclaimer]
+  // delayedFadeOut(faveHog, 2000)
+  // fadeAllOut(1000, buttonArray)
+  // delayedFadeIn(faveHog, 2000)
+// })
 
 function delayedFadeOut(div, range) {
   // Your solution here
+  // console.log('fading')
+  // console.log(div)
+  // console.log(range)
+  // setTimeout(fadeOut(div), range)
   fadeOut(div)
 }
 
 function delayedFadeIn(div, range) {
   // Your solution here
+  // setTimeout(fadeIn(div), range)
   fadeIn(div)
 }
 
 function fadeAllOut(el, group) {
   // Your solution here
+  // debugger
+  const index = group.indexOf(el)
+  group.splice(index, 1)
   group.forEach(div => {
     delayedFadeOut(div)
+
   })
+  setTimeout(() => {fadeOut(el)}, 500)
+  group.push(el)
 }
 
 function fadeAllIn(group) {
